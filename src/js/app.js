@@ -7,14 +7,13 @@ document.addEventListener("DOMContentLoaded", () => {
   const newInterval = setInterval(() => {
     grid.changeActiveCell();
   }, 1000);
-});
 
-// comment this to pass build
-const unusedVariable = "variable";
+  window.addEventListener("beforeunload", () => {
+    clearInterval(newInterval);
+  });
+});
 
 // for demonstration purpose only
 export default function demo(value) {
   return `Demo: ${value}`;
 }
-
-console.log("app.js included");
